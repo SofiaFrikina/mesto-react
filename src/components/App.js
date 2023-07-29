@@ -43,42 +43,60 @@ function App() {
         onCardClick={handleCardClick}
       />
       <Footer />
-      <PopupWithForm name='profile' title='Редактировать профиль' isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} children={
-        <>
+      <PopupWithForm
+        name='profile'
+        title='Редактировать профиль'
+        isOpen={isEditProfilePopupOpen}
+        onClose={closeAllPopups}
+        children={
+          <>
+            <div className="popup__label">
+              <input type="text" placeholder="Имя" className="popup__input popup__input_type_name" name="name"
+                id="name-input" minLength="2" maxLength="40" required />
+              <span className="popup__text-error name-input-error"></span>
+            </div>
+            <div className="popup__label">
+              <input type="text" placeholder="Профессия" className="popup__input popup__input_type_job" name="about"
+                id="job-input" minLength="2" maxLength="200" required />
+              <span className="popup__text-error job-input-error"></span>
+            </div>
+          </>
+        } />
+      <PopupWithForm
+        name='new-element'
+        title='Новое место'
+        isOpen={isAddPlacePopupOpen}
+        onClose={closeAllPopups}
+        children={
+          <>
+            <div className="popup__label">
+              <input type="text" placeholder="Название" className="popup__input popup__input_type_text" name="name"
+                id="text-input" minLength="2" maxLength="30" required />
+              <span className="popup__text-error text-input-error"></span>
+            </div>
+            <div className="popup__label">
+              <input type="url" placeholder="Ссылка на картинку" className="popup__input popup__input_type_sourse"
+                name="link" id="url-input" required />
+              <span className="popup__text-error url-input-error"></span>
+            </div>
+          </>
+        } />
+      <PopupWithForm
+        name='confirm'
+        title='Вы уверены?'
+      />
+      <PopupWithForm
+        name='avatar'
+        title='Обновить аватар'
+        isOpen={isEditAvatarPopupOpen}
+        onClose={closeAllPopups}
+        children={
           <div className="popup__label">
-            <input type="text" placeholder="Имя" className="popup__input popup__input_type_name" name="name"
-              id="name-input" minLength="2" maxLength="40" required />
-            <span className="popup__text-error name-input-error"></span>
+            <input type="url" placeholder="Ссылка на картинку" className="popup__input popup__input_type_name"
+              name="avatar" id="avatar" required />
+            <span className="popup__text-error avatar-error"></span>
           </div>
-          <div className="popup__label">
-            <input type="text" placeholder="Профессия" className="popup__input popup__input_type_job" name="about"
-              id="job-input" minLength="2" maxLength="200" required />
-            <span className="popup__text-error job-input-error"></span>
-          </div>
-        </>
-      } />
-      <PopupWithForm name='new-element' title='Новое место' isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} children={
-        <>
-          <div className="popup__label">
-            <input type="text" placeholder="Название" className="popup__input popup__input_type_text" name="name"
-              id="text-input" minLength="2" maxLength="30" required />
-            <span className="popup__text-error text-input-error"></span>
-          </div>
-          <div className="popup__label">
-            <input type="url" placeholder="Ссылка на картинку" className="popup__input popup__input_type_sourse"
-              name="link" id="url-input" required />
-            <span className="popup__text-error url-input-error"></span>
-          </div>
-        </>
-      } />
-      <PopupWithForm name='confirm' title='Вы уверены?' />
-      <PopupWithForm name='avatar' title='Обновить аватар' isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} children={
-        <div className="popup__label">
-          <input type="url" placeholder="Ссылка на картинку" className="popup__input popup__input_type_name"
-            name="avatar" id="avatar" required />
-          <span className="popup__text-error avatar-error"></span>
-        </div>
-      } />
+        } />
       <ImagePopup
         card={selectedCard}
         onClose={closeAllPopups} />

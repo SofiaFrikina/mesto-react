@@ -25,10 +25,10 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick }) {
     return (
         <main className="content">
             <section className="profile">
-                <div className="profile__avatar-container">
+                <div className="profile__avatar-container" onClick={onEditAvatar}>
                     <img style={{ backgroundImage: `url(${userAvatar})` }} className="profile__avatar"
                         alt="Фотография пользователя" />
-                    <button onClick={onEditAvatar} type="button" className="profile__avatar-button" aria-label="Редактировать аватар"></button>
+                    <button type="button" className="profile__avatar-button" aria-label="Редактировать аватар"></button>
                 </div>
 
                 <div className="profile__info">
